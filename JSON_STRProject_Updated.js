@@ -1,7 +1,3 @@
-//start with a prompt asking if they want a pre-made creative or custom
-/* create an if/then function that goes through the questions depending on the answers
-add those to an object
-*/
 var jSonClickout = {"creatives": [{
     "creative": {
         "advertiser_key": "",
@@ -180,7 +176,7 @@ var creative = function(){
 	typeOfCreative = prompt("Will this be a pre-made or custom creative?");
 	if(typeOfCreative.toUpperCase() == "pre-made".toUpperCase() || typeOfCreative.toUpperCase() == "pre made".toUpperCase() || typeOfCreative.toUpperCase() == "premade".toUpperCase()) {
 		var premadeCreative = prompt("Which type of creative would you like to preview? Website Visit Ad, Content Card, Video View Ad, or Hosted Video Card");
-        if(premadeCreative.toUpperCase() == "website visit ad".toUpperCase()){
+        if(premadeCreative.toUpperCase() == "website visit ad".toUpperCase() || premadeCreative.toUpperCase() == "website visit".toUpperCase()){
            newParse = jSonClickout;
         } else if (premadeCreative.toUpperCase() == "content card".toUpperCase()) {
            newParse = jSonArticleCard;
@@ -190,11 +186,11 @@ var creative = function(){
             newParse = jSonHostedVideo;
         } var headlineLength = prompt("How long would you like the headline to be? The options are 40, 90, 140");
         if (headlineLength == 40) {
-            newParse.creatives[0].headline = "Lorem ipsum dolor sit amet, consectetur."
+            newParse.creatives[0].creative.headline = "Lorem ipsum dolor sit amet, consectetur."
         } else if (headlineLength == 90) {
-            newParse.creatives[0].headline = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.";
+            newParse.creatives[0].creative.headline = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.";
         } else if (headlineLength == 140) {
-            newParse.creatives[0].headline = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim";
+            newParse.creatives[0].creative.headline = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim";
         }
 	} 
 	else{
@@ -202,10 +198,10 @@ var creative = function(){
         customHeadline = prompt("What would you like the headline to read? (140 characters max)");
         customDescription = prompt("What would you like the description to read? (180 characters max)");
         customThumbnail = prompt("Please share a URL for your thumbnail image");
-        jSonClickout.creatives[0].advertiser = promotedBy;
-        jSonClickout.creatives[0].headline = customHeadline;
-        jSonClickout.creatives[0].description = customDescription;
-        jSonClickout.creatives[0].thumbnail_url = customDescription;
+        jSonClickout.creatives[0].creative.advertiser = promotedBy;
+        jSonClickout.creatives[0].creative.headline = customHeadline;
+        jSonClickout.creatives[0].creative.description = customDescription;
+        jSonClickout.creatives[0].creative.thumbnail_url = customDescription;
         newParse = jSonClickout;
 	}
 };
